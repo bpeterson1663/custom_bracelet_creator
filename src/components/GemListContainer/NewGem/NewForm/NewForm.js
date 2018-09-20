@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import FieldInput from './FieldInput/FieldInput';
 import Button from './Button/Button';
-
+import axios from '../../../../axios';
 class NewForm extends Component {
 
     state = {
@@ -14,7 +14,7 @@ class NewForm extends Component {
             name: this.state.name,
             description: this.state.description
         }
-        this.props.submitForm(gemstone);
+        this.addGemstoneHandler(gemstone);
         this.setState({
             name: '',
             description: ''
@@ -25,6 +25,15 @@ class NewForm extends Component {
         this.setState({
             [param]: event.target.value
         });
+    }
+
+
+    addGemstoneHandler (gemstone) {
+        axios.post('/gemstones.json', gemstone)
+            .then(response => {
+                console.log("success")
+            })
+            .catch(error => {console.log("ERROR: ", error)});
     }
 
     render () {
