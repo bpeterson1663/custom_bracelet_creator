@@ -43,7 +43,7 @@ class NewForm extends Component {
                 <h1>Add New Gemstone</h1>
                 <FieldInput type="text" label="Name" value={this.state.name} changed={(event) => this.formChangeHandler(event, 'name')}/>
                 <FieldInput type="text" label="Description" value={this.state.description} changed={(event) => this.formChangeHandler(event, 'description')}/>
-                <Button onClick={this.onSubmitHandler} >Submit</Button>
+                <Button onClick={this.onSubmitHandler} color="primary" variant="contained">Submit</Button>
             </div>
         )
     }
