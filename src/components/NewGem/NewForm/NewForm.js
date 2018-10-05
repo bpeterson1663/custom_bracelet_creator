@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import FieldInput from './FieldInput/FieldInput';
 import Button from './Button/Button';
-import axios from '../../../../axios';
+import axios from '../../../axios';
 class NewForm extends Component {
 
     state = {
@@ -43,7 +43,7 @@ class NewForm extends Component {
                 <h1>Add New Gemstone</h1>
                 <FieldInput type="text" label="Name" value={this.state.name} changed={(event) => this.formChangeHandler(event, 'name')}/>
                 <FieldInput type="text" label="Description" value={this.state.description} changed={(event) => this.formChangeHandler(event, 'description')}/>
-                <Button label="Submit" submit={this.onSubmitHandler} />
+                <Button onClick={this.onSubmitHandler} >Submit</Button>
             </div>
         )
     }

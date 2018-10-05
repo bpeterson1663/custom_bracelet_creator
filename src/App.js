@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import GemListContainer from './components/GemListContainer/GemListContainer';
+import {Route} from 'react-router-dom';
+import NavigationBar from './components/UI/NavigationBar/NavigationBar';
+import GemList from './components/GemList/GemList';
+import NewGem from './components/NewGem/NewGem';
+import EditGem from './components/EditGem/EditGem';
 import './App.css';
 
 class App extends Component {
@@ -8,7 +12,10 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <GemListContainer />
+            <NavigationBar/>
+            <Route path="/gemstones/:id/edit" exact component={EditGem} />
+            <Route path="/gemstones" exact component={GemList} />
+            <Route path="/add-gem" exact component={NewGem} />
         </div>
       </BrowserRouter>
     );
