@@ -1,10 +1,17 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
 
 const FieldInput = (props) => {
     return (
         <div>
-            <label>{props.label}</label>
-            <input type={props.type} value={props.value} onChange={props.changed} />
+            <TextField
+                id={props.label}
+                label={props.label}
+                value={props.value}
+                onChange={props.changed}
+                margin="normal"
+                />
+            {/* <input type={props.type} value={props.value} onChange={props.changed} /> */}
         </div>   
     )
 };

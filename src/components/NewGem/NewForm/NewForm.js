@@ -39,7 +39,9 @@ class NewForm extends Component {
     render () {
 
         return (
-            <div>
+            <div style={{
+                "padding": "20px"
+            }}>
                 <h1>Add New Gemstone</h1>
                 <FieldInput type="text" label="Name" value={this.state.name} changed={(event) => this.formChangeHandler(event, 'name')}/>
                 <FieldInput type="text" label="Description" value={this.state.description} changed={(event) => this.formChangeHandler(event, 'description')}/>

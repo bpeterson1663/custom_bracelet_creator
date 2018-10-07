@@ -60,7 +60,9 @@ class EditGem extends Component {
         let gemstone = null;
         if(this.state.loadedGemstone){
             gemstone = (
-                <div>
+                <div style={{
+                        "padding": "20px",
+                }}>
                     <h1>Edit Gemstone</h1>
                     <FieldInput type="text" label="Name" value={this.state.name} changed={(event) => this.formChangeHandler(event, 'name')}/>
                     <FieldInput type="text" label="Description" value={this.state.description} changed={(event) => this.formChangeHandler(event, 'description')}/>

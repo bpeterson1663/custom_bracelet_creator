@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import axios from '../../axios';
 import Card from '@material-ui/core/Card';
@@ -41,7 +40,7 @@ class GemList extends Component {
     }
 
     editGemstone (id) {
-        this.props.history.push( '/gemstones/' + id);
+        this.props.history.push( '/gemstones/' + id+"/edit");
     }
     render () {
             const gemstoneList = this.state.gemstoneList.map(gemstone => {
@@ -50,15 +49,14 @@ class GemList extends Component {
                                             "width": '300px',
                                             "margin": '30px auto'
                                         }}>
-                    <CardActionArea>
+                    <CardActionArea onClick={() => this.editGemstone(gemstone.id)}>
                         <CardContent>
                             <Typography variant="headline" component="h2">{gemstone.name}</Typography>
                             <Typography component="p">{gemstone.description}</Typography>
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button color="secondary" variant="contained" onClick={() => this.removeGemstone(gemstone.id)} >Remove Gemstone</Button>
-                        <NavLink to={"/gemstones/"+gemstone.id+"/edit"} exact>Edit</NavLink>
+                        <Button size="small" onClick={() => this.removeGemstone(gemstone.id)} >Delete Gemstone</Button>
                     </CardActions>
                     
                 </Card>

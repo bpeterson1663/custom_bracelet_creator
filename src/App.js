@@ -16,6 +16,7 @@ class App extends Component {
             <Route path="/gemstones/:id/edit" exact component={EditGem} />
             <Route path="/gemstones" exact component={GemList} />
             <Route path="/add-gem" exact component={NewGem} />
+            <Route path="/" exact component={GemList} />
         </div>
       </BrowserRouter>
     );
