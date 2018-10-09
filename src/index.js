@@ -7,10 +7,12 @@ import reducer from './store/reducer';
 import {Provider} from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { initializeFirebase } from './push-notification';
 
 const store = createStore(reducer);
 
 ReactDOM.render(<Provider store={store}> 
                     <MuiThemeProvider><App /> </MuiThemeProvider>
                 </Provider>, document.getElementById('root'));
+initializeFirebase();
 registerServiceWorker();
