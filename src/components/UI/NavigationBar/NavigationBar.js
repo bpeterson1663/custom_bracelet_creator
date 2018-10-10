@@ -3,7 +3,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import {NavLink} from 'react-router-dom';
-import {askForPermissioToReceiveNotifications} from '../../../push-notification';
 
 const NavigationBar = () => {
     return (
@@ -14,7 +13,6 @@ const NavigationBar = () => {
                                 pathname: '/add-gem',
                                 hash: '#add'
                             }}><Button color="primary" variant="contained">Add Gemstone</Button></NavLink>
-                <Button onClick={askForPermissioToReceiveNotifications}>Recieve Push</Button>
             </Toolbar>
         </AppBar>
     );
