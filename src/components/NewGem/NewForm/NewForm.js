@@ -7,6 +7,11 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+
 class NewForm extends Component {
 
     state = {
@@ -20,9 +25,11 @@ class NewForm extends Component {
     onSubmitHandler = () => {
         const gemstone = {
             name: this.state.name,
-            description: this.state.description
-        }
-        if(!this.state.name || !this.state.description){
+            description: this.state.description,
+            pricePerStrand: this.state.pricePerStrand,
+            strandSize: this.state.strandSize
+        };
+        if(!this.state.name || !this.state.description || !this.state.pricePerStrand || !this.state.strandSize){
             this.setState({
                 open: true, 
                 warning: true});
@@ -30,7 +37,9 @@ class NewForm extends Component {
         this.addGemstoneHandler(gemstone);
         this.setState({
             name: '',
-            description: ''
+            description: '',
+            pricePerStrand: '',
+            strandSize: ''
         })
     }
 
@@ -39,7 +48,11 @@ class NewForm extends Component {
             [param]: event.target.value
         });
     }
-
+    selectChangeHandler = (event) => {
+        this.setState({
+          [event.target.name]: event.target.value,
+        });
+      }
     handleClose = () => {
         this.setState({open: false, warning: false, success: false});
     }
@@ -71,8 +84,19 @@ class NewForm extends Component {
                 "padding": "20px"
             }}>
                 <h1>Add New Gemstone</h1>
-                <FieldInput type="text" label="Name" value={this.state.name} changed={(event) => this.formChangeHandler(event, 'name')}/>
-                <FieldInput type="text" label="Description" value={this.state.description} changed={(event) => this.formChangeHandler(event, 'description')}/>
+                <FieldInput type="text" label="Name" name="name" value={this.state.name} changed={(event) => this.formChangeHandler(event, 'name')}/>
+                <FieldInput type="text" label="Description" name="description" value={this.state.description} changed={(event) => this.formChangeHandler(event, 'description')}/>
+                <FieldInput type="number" label="Price Per Starnd" name="pricePerStrand" value={this.state.pricePerStrand} changed={(event) => this.formChangeHandler(event, 'pricePerStrand')} />
+                <FormControl>
+                    <InputLabel>Size of Strand</InputLabel>
+                    <Select
+                        value={this.state.strandSize}
+                        onChange={this.selectChangeHandler}
+                        name="strandSize">
+                        <MenuItem value={8}>Eight Inch</MenuItem>
+                        <MenuItem value={15}>Fifteen Inch</MenuItem>
+                    </Select>
+                </FormControl>
                 <Button onClick={this.onSubmitHandler} color="primary" variant="contained">Submit</Button>
                 <Dialog open={this.state.open} onClose={this.handleClose}>
                 <DialogTitle>{" " + title + " "}</DialogTitle>
