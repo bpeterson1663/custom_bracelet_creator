@@ -53,6 +53,8 @@ class GemList extends Component {
                         <CardContent>
                             <Typography variant="headline" component="h2">{gemstone.name}</Typography>
                             <Typography component="p">{gemstone.description}</Typography>
+                            <Typography component="p">Price Per Strand: ${gemstone.pricePerStrand}</Typography>
+                            <Typography component="p">Strand Size: {gemstone.strandSize}</Typography>
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
