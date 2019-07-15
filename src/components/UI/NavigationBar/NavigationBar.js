@@ -13,6 +13,7 @@ const NavigationBar = () => {
                                 pathname: '/add-gem',
                                 hash: '#add'
                             }}><Button color="primary" variant="contained">Add Gemstone</Button></NavLink>
+                <NavLink to="/calculator" exact><Button color="primary" variant="contained">Price Calculator</Button></NavLink>
             </Toolbar>
         </AppBar>
     );

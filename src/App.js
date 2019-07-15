@@ -5,6 +5,7 @@ import NavigationBar from './components/UI/NavigationBar/NavigationBar';
 import GemList from './components/GemList/GemList';
 import NewGem from './components/NewGem/NewGem';
 import EditGem from './components/EditGem/EditGem';
+import Calculator from './components/Calculator/Calculator';
 import './App.css';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
             <Route path="/gemstones/:id/edit" exact component={EditGem} />
             <Route path="/gemstones" exact component={GemList} />
             <Route path="/add-gem" exact component={NewGem} />
+            <Route path="/calculator" exact component={Calculator} />
             <Route path="/" exact component={GemList} />
         </div>
       </BrowserRouter>
