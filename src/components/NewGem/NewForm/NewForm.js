@@ -27,7 +27,10 @@ class NewForm extends Component {
             name: this.state.name,
             description: this.state.description,
             pricePerStrand: this.state.pricePerStrand,
-            strandSize: this.state.strandSize
+            strandSize: this.state.strandSize,
+            costPerBead: this.state.strandSize === 8 
+                        ? (this.state.pricePerStrand / 24) 
+                        : (this.state.pricePerStrand / 48)
         };
         if(!this.state.name || !this.state.description || !this.state.pricePerStrand || !this.state.strandSize){
             this.setState({
